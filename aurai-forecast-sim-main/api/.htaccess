@@ -1,0 +1,17 @@
+RewriteEngine On
+
+# The local config holds the Gemini API key. PHP normally executes it and
+# reveals nothing, but a server that stops running PHP — a broken handler after
+# an upgrade, a mis-set PHP version — would serve it as plain text instead.
+# Denying it outright means that failure cannot leak the key.
+<FilesMatch "^config\.local\.php$">
+    Require all denied
+</FilesMatch>
+
+# Apache does not expose the Authorization header to PHP by default, which
+# would make every bearer-token request look unauthenticated.
+RewriteCond %{HTTP:Authorization} .
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ index.php/$1 [L,QSA]

@@ -1,0 +1,248 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  /* Tells the browser to paint native controls (select popups, scrollbars,
+     date pickers) with the light palette. Without it a dark-themed page gets
+     a white <option> list rendered with the page's light text — invisible. */
+  color-scheme: light;
+
+  --radius: 0.875rem;
+  --background: oklch(0.985 0.005 270);
+  --foreground: oklch(0.18 0.04 270);
+  --card: oklch(1 0 0 / 0.7);
+  --card-foreground: oklch(0.18 0.04 270);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.04 270);
+  --primary: oklch(0.55 0.22 285);
+  --primary-foreground: oklch(0.99 0 0);
+  --primary-glow: oklch(0.7 0.2 290);
+  --secondary: oklch(0.95 0.015 270);
+  --secondary-foreground: oklch(0.22 0.05 270);
+  --muted: oklch(0.95 0.012 270);
+  --muted-foreground: oklch(0.5 0.03 270);
+  --accent: oklch(0.93 0.04 290);
+  --accent-foreground: oklch(0.25 0.08 285);
+  --destructive: oklch(0.6 0.23 25);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.9 0.02 270 / 0.6);
+  --input: oklch(0.92 0.02 270);
+  --ring: oklch(0.55 0.22 285);
+  --chart-1: oklch(0.6 0.22 285);
+  --chart-2: oklch(0.7 0.18 200);
+  --chart-3: oklch(0.75 0.18 160);
+  --chart-4: oklch(0.78 0.18 80);
+  --chart-5: oklch(0.65 0.22 20);
+  --sidebar: oklch(0.99 0.005 270 / 0.7);
+  --sidebar-foreground: oklch(0.2 0.04 270);
+  --sidebar-primary: oklch(0.55 0.22 285);
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.94 0.03 285);
+  --sidebar-accent-foreground: oklch(0.25 0.08 285);
+  --sidebar-border: oklch(0.9 0.02 270 / 0.5);
+  --sidebar-ring: oklch(0.55 0.22 285);
+  --gradient-primary: linear-gradient(135deg, oklch(0.6 0.22 285), oklch(0.7 0.2 230));
+  --gradient-surface: linear-gradient(135deg, oklch(1 0 0 / 0.7), oklch(0.96 0.02 285 / 0.4));
+  --gradient-bg: radial-gradient(1200px 600px at 10% -10%, oklch(0.8 0.15 285 / 0.35), transparent 60%),
+                 radial-gradient(900px 500px at 110% 10%, oklch(0.75 0.18 230 / 0.3), transparent 60%),
+                 linear-gradient(180deg, oklch(0.985 0.005 270), oklch(0.96 0.02 280));
+  --shadow-glow: 0 10px 40px -10px oklch(0.55 0.22 285 / 0.35);
+  --shadow-card: 0 8px 30px -12px oklch(0.2 0.05 270 / 0.2);
+}
+
+.dark {
+  color-scheme: dark;
+
+  --background: oklch(0.16 0.035 270);
+  --foreground: oklch(0.97 0.01 270);
+  --card: oklch(0.22 0.04 270 / 0.55);
+  --card-foreground: oklch(0.97 0.01 270);
+  --popover: oklch(0.22 0.04 270);
+  --popover-foreground: oklch(0.97 0.01 270);
+  --primary: oklch(0.72 0.2 290);
+  --primary-foreground: oklch(0.15 0.04 270);
+  --primary-glow: oklch(0.78 0.2 295);
+  --secondary: oklch(0.26 0.04 270);
+  --secondary-foreground: oklch(0.97 0.01 270);
+  --muted: oklch(0.24 0.035 270);
+  --muted-foreground: oklch(0.72 0.03 270);
+  --accent: oklch(0.32 0.08 290);
+  --accent-foreground: oklch(0.97 0.01 270);
+  --destructive: oklch(0.65 0.22 25);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(1 0 0 / 0.08);
+  --input: oklch(1 0 0 / 0.1);
+  --ring: oklch(0.72 0.2 290);
+  --chart-1: oklch(0.72 0.2 290);
+  --chart-2: oklch(0.75 0.18 220);
+  --chart-3: oklch(0.78 0.18 160);
+  --chart-4: oklch(0.8 0.18 80);
+  --chart-5: oklch(0.72 0.22 20);
+  --sidebar: oklch(0.18 0.04 270 / 0.65);
+  --sidebar-foreground: oklch(0.95 0.01 270);
+  --sidebar-primary: oklch(0.72 0.2 290);
+  --sidebar-primary-foreground: oklch(0.15 0.04 270);
+  --sidebar-accent: oklch(0.28 0.06 285);
+  --sidebar-accent-foreground: oklch(0.97 0.01 270);
+  --sidebar-border: oklch(1 0 0 / 0.06);
+  --sidebar-ring: oklch(0.72 0.2 290);
+  --gradient-primary: linear-gradient(135deg, oklch(0.62 0.22 285), oklch(0.7 0.2 230));
+  --gradient-surface: linear-gradient(135deg, oklch(0.28 0.06 285 / 0.6), oklch(0.22 0.04 270 / 0.4));
+  --gradient-bg: radial-gradient(1200px 600px at 10% -10%, oklch(0.45 0.18 285 / 0.45), transparent 60%),
+                 radial-gradient(900px 500px at 110% 10%, oklch(0.4 0.2 230 / 0.4), transparent 60%),
+                 linear-gradient(180deg, oklch(0.13 0.04 270), oklch(0.1 0.04 275));
+  --shadow-glow: 0 10px 50px -10px oklch(0.62 0.25 285 / 0.55);
+  --shadow-card: 0 10px 40px -10px oklch(0 0 0 / 0.5);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html, body, #root { height: 100%; }
+  body {
+    color: var(--color-foreground);
+    background: var(--gradient-bg);
+    background-attachment: fixed;
+    font-family: var(--font-sans);
+    min-height: 100vh;
+  }
+}
+
+@utility glass {
+  background: var(--gradient-surface);
+  backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
+}
+
+@utility glass-strong {
+  background: color-mix(in oklab, var(--card) 85%, transparent);
+  backdrop-filter: blur(28px) saturate(160%);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
+}
+
+@utility gradient-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility gradient-border {
+  position: relative;
+  background: var(--card);
+  border: 1px solid transparent;
+  background-clip: padding-box;
+}
+
+@utility glow {
+  box-shadow: var(--shadow-glow);
+}
+
+.scrollbar-thin::-webkit-scrollbar { width: 6px; height: 6px; }
+.scrollbar-thin::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 3px; }
+
+/* Scrollbar appears only on hover */
+.scrollbar-hover::-webkit-scrollbar { width: 6px; height: 6px; }
+.scrollbar-hover::-webkit-scrollbar-track { background: transparent; }
+.scrollbar-hover::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 3px;
+  transition: background 0.2s ease;
+}
+.scrollbar-hover:hover::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+}
+
+/* Firefox scrollbar (hide by default, show on hover) */
+.scrollbar-hover {
+  scrollbar-color: transparent transparent;
+  scrollbar-width: thin;
+}
+.scrollbar-hover:hover {
+  scrollbar-color: var(--color-border) transparent;
+}
+
+/* Native <select> popups are drawn by the OS and do not inherit the field's
+   transparent background, so options need their own opaque surface. */
+select option,
+select optgroup {
+  background-color: var(--popover);
+  color: var(--popover-foreground);
+}
+
+/* Recharts' default legend lays every series out on one line and lets it
+   overflow rather than wrap, which is fine at desktop widths but crams into
+   illegibility once a chart with 4-6 series (What-If, Model Arena) hits a
+   phone-width column. Forcing the wrapper to wrap, and shrinking the marker
+   and gap, keeps every label readable without touching each chart's props. */
+@media (max-width: 480px) {
+  .recharts-legend-wrapper {
+    width: 100% !important;
+  }
+  .recharts-default-legend {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 2px 10px !important;
+    white-space: normal !important;
+  }
+  .recharts-legend-item {
+    margin-right: 0 !important;
+  }
+  .recharts-legend-item-text {
+    font-size: 10px !important;
+  }
+  /* Scoped to inside a legend item only — .recharts-surface is the same
+     class the main chart's own SVG uses, so an unscoped rule here would
+     shrink the whole chart to 10px on mobile, not just the legend icon. */
+  .recharts-legend-item .recharts-surface {
+    width: 10px !important;
+    height: 10px !important;
+  }
+}
